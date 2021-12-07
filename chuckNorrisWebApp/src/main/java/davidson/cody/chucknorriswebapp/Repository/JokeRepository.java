@@ -6,11 +6,14 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class JokeRepository{
+
     private ChuckNorrisQuotes chuckNorrisQuotes;
 
+    public JokeRepository(ChuckNorrisQuotes chuckNorrisQuotes) {
+        this.chuckNorrisQuotes = chuckNorrisQuotes;
+    }
+
     public String findJoke() {
-        chuckNorrisQuotes = new ChuckNorrisQuotes();
-        String randomQuote = chuckNorrisQuotes.getRandomQuote();
-        return randomQuote;
+        return chuckNorrisQuotes.getRandomQuote();
     }
 }
